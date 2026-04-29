@@ -21,7 +21,7 @@
   .app{display:grid;grid-template-rows:56px 44px 1fr;height:100vh;overflow:hidden}
   .topbar{background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 24px;gap:16px}
   .brand{display:flex;align-items:center;gap:12px}
-  .brand-name{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:2px;color:#fff}
+  .brand-name{font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:3px;color:#fff}
   .live-dot{width:7px;height:7px;background:var(--red);border-radius:50%;animation:pulse 1.4s ease-in-out infinite}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
   .topbar-tags{display:flex;gap:8px}
@@ -46,7 +46,9 @@
   .sidebar::-webkit-scrollbar-thumb{background:var(--faint);border-radius:2px}
   .ecard{padding:14px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .12s}
   .ecard:hover{background:var(--surface2)}
-  .ecard.sel{background:var(--blue-dim);border-left:3px solid var(--blue)}
+  .ecard.critical{background:#0f0a0a}
+  .ecard.critical:hover{background:#140d0d}
+  .ecard.sel{background:var(--blue-dim);box-shadow:inset 0 0 0 1px var(--blue)}
   .ecard.sel .ec-name{color:var(--blue)}
   .ec-row1{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;gap:8px}
   .ec-name{font-size:12px;font-weight:500;line-height:1.4;flex:1}
@@ -55,7 +57,7 @@
   .rh{background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber-border)}
   .rm{background:var(--green-dim);color:var(--green);border:1px solid #1a4a32}
   .ec-tags{display:flex;gap:4px;flex-wrap:wrap}
-  .etag{font-size:9px;font-family:var(--mono);border-radius:2px;padding:1px 5px}
+  .etag{font-size:10px;font-family:var(--mono);border-radius:2px;padding:1px 5px}
   .et-red{background:var(--red-dim);color:var(--red);border:1px solid var(--red-border)}
   .et-amber{background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber-border)}
   .et-gray{background:var(--surface3);color:var(--muted);border:1px solid var(--border)}
@@ -63,16 +65,17 @@
   .detail::-webkit-scrollbar{width:4px}
   .detail::-webkit-scrollbar-thumb{background:var(--faint);border-radius:2px}
   .dh{margin-bottom:20px}
-  .dh-name{font-size:18px;font-weight:600;margin-bottom:4px}
+  .dh-row1{display:flex;align-items:flex-start;gap:12px;margin-bottom:6px}
+  .dh-name{font-size:20px;font-weight:600;flex:1;line-height:1.3}
   .dh-meta{font-family:var(--mono);font-size:11px;color:var(--muted)}
   .risk-box{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin-bottom:16px;display:flex;align-items:center;gap:20px}
-  .risk-score-num{font-family:var(--mono);font-size:42px;font-weight:700;line-height:1}
+  .risk-score-num{font-family:var(--mono);font-size:52px;font-weight:700;line-height:1}
   .risk-score-denom{font-size:12px;color:var(--muted)}
   .risk-right{flex:1}
   .risk-label-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
   .risk-label{font-size:10px;font-family:var(--mono);letter-spacing:1px;color:var(--muted)}
-  .risk-bar-bg{background:var(--surface3);border-radius:3px;height:6px;overflow:hidden}
-  .risk-bar-fill{height:6px;border-radius:3px;transition:width .8s cubic-bezier(.4,0,.2,1)}
+  .risk-bar-bg{background:var(--surface3);border-radius:3px;height:8px;overflow:hidden}
+  .risk-bar-fill{height:8px;border-radius:3px;transition:width .8s cubic-bezier(.4,0,.2,1)}
   .risk-verdict{font-size:11px;font-family:var(--mono);font-weight:700}
   .flags{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
   .fcard{background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:12px 14px}
@@ -107,9 +110,9 @@
   .mitem:last-child{border-bottom:none}
   .mi-h{font-size:12px;font-weight:500;margin-bottom:3px}
   .mi-m{font-size:11px;color:var(--muted);font-family:var(--mono)}
-  .ai-brief{background:linear-gradient(135deg,#0d1117,#0a1428,#110a1f);border:1px solid #1e2a3a;border-radius:7px;padding:14px 16px;margin-bottom:12px}
-  .ai-brief .sec-title{color:#4a7aaa}
-  .ai-brief p{font-size:12px;line-height:1.8;color:#c8d8f0}
+  .ai-brief{background:var(--surface);border:1px solid #2a3a52;border-radius:7px;padding:14px 16px;margin-bottom:12px}
+  .ai-brief .sec-title{color:#5a8abb}
+  .ai-brief p{font-size:12px;line-height:1.8;color:#ccd6e8}
   .ai-brief strong{color:#fff;font-weight:600}
   .ai-cursor{display:inline-block;width:8px;height:13px;background:#4a9eff;opacity:.8;animation:blink .9s step-end infinite;vertical-align:middle;border-radius:1px}
   @keyframes blink{0%,100%{opacity:.8}50%{opacity:0}}
@@ -410,7 +413,7 @@ function renderSidebar(){
   const list=getFiltered();
   document.getElementById('countBadge').textContent=list.length+' ENTIT'+(list.length===1?'Y':'IES');
   document.getElementById('sidebar').innerHTML=list.length?list.map(e=>`
-    <div class="ecard${selected===e.id?' sel':''}" onclick="selectEntity('${e.id}')">
+    <div class="ecard${selected===e.id?' sel':''}${e.score>=80?' critical':''}" onclick="selectEntity('${e.id}')">
       <div class="ec-row1">
         <div class="ec-name">${e.name}</div>
         <span class="rpill ${pillClass(e.score)}">${e.score}</span>
@@ -448,7 +451,10 @@ function selectEntity(id){
   const sc=scoreColor(e.score);
   document.getElementById('detail').innerHTML=`
     <div class="dh">
-      <div class="dh-name">${e.name}</div>
+      <div class="dh-row1">
+        <div class="dh-name">${e.name}</div>
+        <span class="rpill ${pillClass(e.score)}">${e.tier||scoreLabel(e.score).replace(' RISK','')}</span>
+      </div>
       <div class="dh-meta">${e.funding} &nbsp;·&nbsp; ${e.period} &nbsp;·&nbsp; ${e.status}</div>
     </div>
     <div class="risk-box">
