@@ -1,1 +1,520 @@
-<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=../dashboard.html"><script>window.location.replace('../dashboard.html');</script></head><body></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Follow The Money — Agency 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;font-family:'Space Grotesk',sans-serif;background:#0a0a0f;color:#e8e6f0}
+  :root{
+    --red:#e05252;--red-dim:#2a1515;--red-border:#5a2020;
+    --amber:#d4931a;--amber-dim:#261a08;--amber-border:#5a3a0a;
+    --green:#3ab87a;--green-dim:#0a1f14;
+    --blue:#4a9eff;--blue-dim:#0a1828;
+    --surface:#12121a;--surface2:#1a1a26;--surface3:#20202e;
+    --border:#2a2a3a;--border2:#353548;
+    --text:#e8e6f0;--muted:#7a7a9a;--faint:#3a3a52;
+    --mono:'Space Mono',monospace;
+  }
+  .app{display:grid;grid-template-rows:56px 44px 1fr;height:100vh;overflow:hidden}
+  .topbar{background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 24px;gap:16px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand-name{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:2px;color:#fff}
+  .live-dot{width:7px;height:7px;background:var(--red);border-radius:50%;animation:pulse 1.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
+  .topbar-tags{display:flex;gap:8px}
+  .ttag{font-family:var(--mono);font-size:10px;border:1px solid var(--border2);border-radius:3px;padding:3px 8px;color:var(--muted)}
+  .summary-pills{display:flex;gap:8px}
+  .spill{font-size:11px;font-family:var(--mono);padding:3px 10px;border-radius:3px;font-weight:700}
+  .sp-red{background:var(--red-dim);color:var(--red);border:1px solid var(--red-border)}
+  .sp-amber{background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber-border)}
+  .sp-green{background:var(--green-dim);color:var(--green);border:1px solid #1a4a32}
+  .toolbar{background:var(--surface2);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 24px;gap:6px;overflow-x:auto}
+  .fbtn{font-size:11px;font-family:var(--mono);border:1px solid var(--border2);background:transparent;border-radius:3px;padding:4px 12px;cursor:pointer;color:var(--muted);transition:all .15s;white-space:nowrap}
+  .fbtn:hover{color:var(--text);border-color:var(--faint)}
+  .fbtn.active{background:var(--text);color:#0a0a0f;border-color:var(--text)}
+  .tsep{width:1px;height:20px;background:var(--border);margin:0 4px;flex-shrink:0}
+  .score-ctrl{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
+  .score-ctrl span{font-size:11px;color:var(--muted);font-family:var(--mono);white-space:nowrap}
+  .score-ctrl input[type=range]{width:90px;accent-color:var(--red)}
+  .count{font-family:var(--mono);font-size:11px;color:var(--muted);background:var(--surface3);border:1px solid var(--border);border-radius:3px;padding:3px 8px;white-space:nowrap}
+  .main{display:grid;grid-template-columns:300px 1fr;overflow:hidden}
+  .sidebar{background:var(--surface);border-right:1px solid var(--border);overflow-y:auto}
+  .sidebar::-webkit-scrollbar{width:4px}
+  .sidebar::-webkit-scrollbar-thumb{background:var(--faint);border-radius:2px}
+  .ecard{padding:14px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .12s}
+  .ecard:hover{background:var(--surface2)}
+  .ecard.sel{background:var(--blue-dim);border-left:3px solid var(--blue)}
+  .ecard.sel .ec-name{color:var(--blue)}
+  .ec-row1{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;gap:8px}
+  .ec-name{font-size:12px;font-weight:500;line-height:1.4;flex:1}
+  .rpill{font-family:var(--mono);font-size:11px;font-weight:700;padding:2px 7px;border-radius:3px;flex-shrink:0}
+  .rc{background:var(--red-dim);color:var(--red);border:1px solid var(--red-border)}
+  .rh{background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber-border)}
+  .rm{background:var(--green-dim);color:var(--green);border:1px solid #1a4a32}
+  .ec-tags{display:flex;gap:4px;flex-wrap:wrap}
+  .etag{font-size:9px;font-family:var(--mono);border-radius:2px;padding:1px 5px}
+  .et-red{background:var(--red-dim);color:var(--red);border:1px solid var(--red-border)}
+  .et-amber{background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber-border)}
+  .et-gray{background:var(--surface3);color:var(--muted);border:1px solid var(--border)}
+  .detail{background:#0e0e18;overflow-y:auto;padding:24px}
+  .detail::-webkit-scrollbar{width:4px}
+  .detail::-webkit-scrollbar-thumb{background:var(--faint);border-radius:2px}
+  .dh{margin-bottom:20px}
+  .dh-name{font-size:18px;font-weight:600;margin-bottom:4px}
+  .dh-meta{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .risk-box{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin-bottom:16px;display:flex;align-items:center;gap:20px}
+  .risk-score-num{font-family:var(--mono);font-size:42px;font-weight:700;line-height:1}
+  .risk-score-denom{font-size:12px;color:var(--muted)}
+  .risk-right{flex:1}
+  .risk-label-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+  .risk-label{font-size:10px;font-family:var(--mono);letter-spacing:1px;color:var(--muted)}
+  .risk-bar-bg{background:var(--surface3);border-radius:3px;height:6px;overflow:hidden}
+  .risk-bar-fill{height:6px;border-radius:3px;transition:width .8s cubic-bezier(.4,0,.2,1)}
+  .risk-verdict{font-size:11px;font-family:var(--mono);font-weight:700}
+  .flags{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+  .fcard{background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:12px 14px}
+  .fcard.on-red{background:var(--red-dim);border-color:var(--red-border)}
+  .fcard.on-amber{background:var(--amber-dim);border-color:var(--amber-border)}
+  .fc-ico{font-size:20px;margin-bottom:6px}
+  .fc-title{font-size:12px;font-weight:500;margin-bottom:3px}
+  .fc-desc{font-size:11px;color:var(--muted);line-height:1.5}
+  .fcard.on-red .fc-title{color:var(--red)}
+  .fcard.on-amber .fc-title{color:var(--amber)}
+  .fcard.on-red .fc-desc,.fcard.on-amber .fc-desc{color:var(--text);opacity:.8}
+  .graph-sec{background:var(--surface);border:1px solid var(--border);border-radius:8px;margin-bottom:12px;overflow:hidden}
+  .graph-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px}
+  .graph-title{font-size:9px;font-family:var(--mono);letter-spacing:1.5px;color:var(--muted);text-transform:uppercase}
+  .graph-legend{display:flex;gap:12px;flex-wrap:wrap}
+  .gl-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--muted);font-family:var(--mono)}
+  .gl-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  canvas#graph-canvas{display:block;background:#08080f;cursor:grab;width:100%}
+  canvas#graph-canvas:active{cursor:grabbing}
+  .sec{background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:14px 16px;margin-bottom:12px}
+  .sec-title{font-size:9px;font-family:var(--mono);letter-spacing:1.5px;color:var(--muted);margin-bottom:12px;text-transform:uppercase}
+  .loop-chain{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .ln{font-size:11px;font-family:var(--mono);border-radius:3px;padding:4px 10px;background:var(--surface3);border:1px solid var(--border2);color:var(--text)}
+  .ln.origin{background:var(--red-dim);border-color:var(--red-border);color:var(--red)}
+  .la{font-size:11px;color:var(--muted);font-weight:700}
+  .drow{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)}
+  .drow:last-child{border-bottom:none}
+  .dr-name{font-size:12px;font-weight:500;margin-bottom:2px}
+  .dr-orgs{font-size:11px;color:var(--muted)}
+  .dr-flag{font-size:9px;font-family:var(--mono);background:var(--red-dim);color:var(--red);border:1px solid var(--red-border);border-radius:2px;padding:1px 6px;white-space:nowrap}
+  .mitem{padding:8px 0;border-bottom:1px solid var(--border)}
+  .mitem:last-child{border-bottom:none}
+  .mi-h{font-size:12px;font-weight:500;margin-bottom:3px}
+  .mi-m{font-size:11px;color:var(--muted);font-family:var(--mono)}
+  .ai-brief{background:linear-gradient(135deg,#0d1117,#0a1428,#110a1f);border:1px solid #1e2a3a;border-radius:7px;padding:14px 16px;margin-bottom:12px}
+  .ai-brief .sec-title{color:#4a7aaa}
+  .ai-brief p{font-size:12px;line-height:1.8;color:#c8d8f0}
+  .ai-brief strong{color:#fff;font-weight:600}
+  .ai-cursor{display:inline-block;width:8px;height:13px;background:#4a9eff;opacity:.8;animation:blink .9s step-end infinite;vertical-align:middle;border-radius:1px}
+  @keyframes blink{0%,100%{opacity:.8}50%{opacity:0}}
+  .empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:12px}
+  .empty-icon{font-size:40px;filter:grayscale(1);opacity:.3}
+  .empty-text{font-size:13px;color:var(--muted)}
+  .loading{display:flex;align-items:center;justify-content:center;height:100%;gap:10px;color:var(--muted);font-family:var(--mono);font-size:12px}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="brand">
+      <div class="live-dot"></div>
+      <span class="brand-name">FOLLOW THE MONEY</span>
+      <div class="topbar-tags">
+        <span class="ttag">CRA T3010</span>
+        <span class="ttag">ProDisclosure</span>
+        <span class="ttag">Adverse Media</span>
+      </div>
+    </div>
+    <div class="summary-pills">
+      <span class="spill sp-red" id="pill-critical">— CRITICAL</span>
+      <span class="spill sp-amber" id="pill-high">— HIGH</span>
+      <span class="spill sp-green" id="pill-medium">— MEDIUM</span>
+    </div>
+    <div class="topbar-tags">
+      <span class="ttag">Agency 2026 · Ottawa</span>
+    </div>
+  </div>
+  <div class="toolbar">
+    <button class="fbtn active" onclick="setFilter('all',this)">ALL ENTITIES</button>
+    <button class="fbtn" onclick="setFilter('zombie',this)">#1 ZOMBIE</button>
+    <button class="fbtn" onclick="setFilter('loop',this)">#3 FUNDING LOOP</button>
+    <button class="fbtn" onclick="setFilter('network',this)">#6 DIRECTOR NETWORK</button>
+    <button class="fbtn" onclick="setFilter('media',this)">#10 ADVERSE MEDIA</button>
+    <div class="tsep"></div>
+    <div class="score-ctrl">
+      <span>MIN SCORE</span>
+      <input type="range" min="0" max="100" value="0" id="minScore" oninput="applyScore(this.value)">
+      <span id="scoreLabel" style="min-width:24px">0</span>
+    </div>
+    <span class="count" id="countBadge">— ENTITIES</span>
+  </div>
+  <div class="main">
+    <div class="sidebar" id="sidebar"><div class="loading">Loading data...</div></div>
+    <div class="detail" id="detail">
+      <div class="empty">
+        <div class="empty-icon">⚠</div>
+        <div class="empty-text">Select an entity to view full risk profile</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── DATA ─────────────────────────────────────────────────────────────────
+// Tries API first, falls back to SAMPLE_DATA
+const API_URL = '../output.json';
+
+const SAMPLE_DATA = {
+  entities: [
+    {id:'1',name:'XYZ Community Solutions Inc.',score:94,tier:'CRITICAL',funding:'$2.3M',period:'2021–2023',status:'Dissolved Apr 2024',
+     flags:{zombie:true,loop:true,network:true,media:true},
+     loop_chain:['XYZ Community','→ $1.8M →','ABC Foundation','→ $1.6M →','DEF Services','→ $890K →','XYZ Community'],
+     directors:[{name:'John Smith',orgs:'XYZ, ABC Foundation, DEF Services',flagged:true},{name:'Maria Lee',orgs:'XYZ, DEF Services',flagged:false}],
+     media_findings:[{h:'John Smith named in CRA audit probe',m:'CBC News · March 2023'},{h:'Community group under scrutiny for missing funds',m:'Ottawa Citizen · Nov 2022'}],
+     brief:'This entity presents a <strong>critical-risk profile across all four detection layers</strong>. Public funding of $2.3M was disbursed between 2021–2023, with the organization dissolving within 10 months of its final grant after dispersing <strong>$1.8M through a confirmed three-node circular funding chain</strong>. Director John Smith is a common node across all three loop entities and is the subject of a named CRA audit probe. <strong>Recommend immediate audit referral.</strong>',
+     graph_nodes:[
+       {id:'org1',label:'XYZ Community\nSolutions',type:'org-bad',x:0,y:-90},
+       {id:'org2',label:'ABC\nFoundation',type:'org-bad',x:100,y:60},
+       {id:'org3',label:'DEF\nServices',type:'org-bad',x:-100,y:60},
+       {id:'dir1',label:'John Smith\n(Director)',type:'director-flagged',x:0,y:10},
+       {id:'dir2',label:'Maria Lee\n(Director)',type:'director',x:160,y:-30}
+     ],
+     graph_edges:[
+       {from:'org1',to:'org2',label:'$1.8M',type:'money',width:3},
+       {from:'org2',to:'org3',label:'$1.6M',type:'money',width:2.5},
+       {from:'org3',to:'org1',label:'$890K',type:'money',width:2},
+       {from:'dir1',to:'org1',type:'board',width:1.5},
+       {from:'dir1',to:'org2',type:'board',width:1.5},
+       {from:'dir1',to:'org3',type:'board',width:1.5},
+       {from:'dir2',to:'org1',type:'board',width:1},
+       {from:'dir2',to:'org3',type:'board',width:1}
+     ]},
+    {id:'2',name:'Northern Innovation Partners',score:81,tier:'CRITICAL',funding:'$1.1M',period:'2020–2022',status:'Dissolved Jan 2023',
+     flags:{zombie:true,loop:false,network:true,media:true},
+     loop_chain:[],
+     directors:[{name:'Sandra Chu',orgs:'NIP, Arctic Growth Fund, 3 corps',flagged:true},{name:'Paul Demers',orgs:'NIP, Arctic Growth Fund',flagged:false}],
+     media_findings:[{h:'Former civil servant connected to dissolved fund',m:'Globe and Mail · May 2023'}],
+     brief:'Dissolved <strong>9 months after final funding disbursement</strong>. Director Sandra Chu is a former Treasury Board employee who retained board positions at two subsidiary entities receiving subsequent transfers totalling <strong>$340K</strong>. No confirmed funding loop but the director network and revolving-door concern warrant escalation. <strong>Recommend escalation for review.</strong>',
+     graph_nodes:[
+       {id:'org1',label:'N. Innovation\nPartners',type:'org-bad',x:-80,y:0},
+       {id:'org2',label:'Arctic Growth\nFund',type:'org-warn',x:80,y:0},
+       {id:'dir1',label:'Sandra Chu\n(Fmr. Treasury)',type:'director-flagged',x:0,y:-80},
+       {id:'dir2',label:'Paul Demers\n(Director)',type:'director',x:0,y:80}
+     ],
+     graph_edges:[
+       {from:'org1',to:'org2',label:'$340K',type:'money',width:2},
+       {from:'dir1',to:'org1',type:'board',width:1.5},
+       {from:'dir1',to:'org2',type:'board',width:1.5},
+       {from:'dir2',to:'org1',type:'board',width:1},
+       {from:'dir2',to:'org2',type:'board',width:1}
+     ]},
+    {id:'3',name:'Prairie Skills Collective',score:77,tier:'HIGH',funding:'$870K',period:'2022–2024',status:'Active',
+     flags:{zombie:false,loop:true,network:true,media:false},
+     loop_chain:['Prairie Skills','→ $620K →','Western Learning Hub','→ $490K →','Prairie Skills'],
+     directors:[{name:'Ethan Boyle',orgs:'Prairie Skills, Western Learning Hub',flagged:false}],
+     media_findings:[],
+     brief:'Still active, but a <strong>confirmed two-node circular funding loop</strong> exists between Prairie Skills Collective and Western Learning Hub. <strong>$620K transferred out, $490K returned</strong> — loop efficiency of 79%. The same director controls both organizations with no adverse media. <strong>Recommend escalation for review.</strong>',
+     graph_nodes:[
+       {id:'org1',label:'Prairie Skills\nCollective',type:'org-bad',x:-90,y:0},
+       {id:'org2',label:'Western\nLearning Hub',type:'org-bad',x:90,y:0},
+       {id:'dir1',label:'Ethan Boyle\n(Director)',type:'director',x:0,y:-80}
+     ],
+     graph_edges:[
+       {from:'org1',to:'org2',label:'$620K',type:'money',width:3,curve:0.3},
+       {from:'org2',to:'org1',label:'$490K',type:'money',width:2.5,curve:0.3},
+       {from:'dir1',to:'org1',type:'board',width:1.2},
+       {from:'dir1',to:'org2',type:'board',width:1.2}
+     ]},
+    {id:'4',name:'Metro Access Foundation',score:71,tier:'HIGH',funding:'$3.4M',period:'2019–2023',status:'Active',
+     flags:{zombie:false,loop:false,network:true,media:true},
+     loop_chain:[],
+     directors:[{name:'Louise Tremblay',orgs:'Metro Access + 4 other federally-funded charities',flagged:true},{name:'James Okafor',orgs:'Metro Access, UrbanConnect, GTA Outreach',flagged:false}],
+     media_findings:[{h:'Charity board member faces civil fraud allegation',m:'Toronto Star · Aug 2023'}],
+     brief:'No dissolution or confirmed loop. However, director Louise Tremblay simultaneously controls <strong>5 charities receiving a combined $8.9M</strong> in federal and provincial grants. Adverse media links her to civil fraud proceedings from a prior organization. <strong>Governance concentration risk — recommend monitoring with escalation trigger.</strong>',
+     graph_nodes:[
+       {id:'org1',label:'Metro Access\nFoundation',type:'org-warn',x:0,y:0},
+       {id:'org2',label:'UrbanConnect',type:'org-warn',x:120,y:-60},
+       {id:'org3',label:'GTA Outreach',type:'org-warn',x:120,y:60},
+       {id:'org4',label:'Charity A',type:'org-neutral',x:-120,y:-60},
+       {id:'org5',label:'Charity B',type:'org-neutral',x:-120,y:60},
+       {id:'dir1',label:'Louise\nTremblay',type:'director-flagged',x:0,y:-120},
+       {id:'dir2',label:'James Okafor\n(Director)',type:'director',x:60,y:110}
+     ],
+     graph_edges:[
+       {from:'dir1',to:'org1',type:'board',width:2},
+       {from:'dir1',to:'org2',type:'board',width:2},
+       {from:'dir1',to:'org3',type:'board',width:2},
+       {from:'dir1',to:'org4',type:'board',width:1.5},
+       {from:'dir1',to:'org5',type:'board',width:1.5},
+       {from:'dir2',to:'org1',type:'board',width:1},
+       {from:'dir2',to:'org2',type:'board',width:1},
+       {from:'dir2',to:'org3',type:'board',width:1}
+     ]},
+    {id:'5',name:'Coastal Outreach Society',score:63,tier:'MEDIUM',funding:'$540K',period:'2021–2023',status:'Dissolved Sep 2024',
+     flags:{zombie:true,loop:false,network:false,media:false},loop_chain:[],directors:[{name:'Ray Henderson',orgs:'Coastal Outreach Society',flagged:false}],media_findings:[],
+     brief:'Dissolved 14 months after final grant. No identified loop or shared directors. Government funding accounted for <strong>92% of total revenue</strong> — the entity had no commercial capacity and no apparent program delivery record in CRA filings. <strong>Recommend monitoring.</strong>',
+     graph_nodes:[{id:'gov',label:'Gov Funder',type:'gov',x:-80,y:0},{id:'org1',label:'Coastal\nOutreach',type:'org-neutral',x:80,y:0}],
+     graph_edges:[{from:'gov',to:'org1',label:'$540K',type:'money',width:2}]},
+    {id:'6',name:'Capital Region Social Labs',score:58,tier:'MEDIUM',funding:'$1.6M',period:'2020–2024',status:'Active',
+     flags:{zombie:false,loop:false,network:true,media:true},loop_chain:[],
+     directors:[{name:'Dr. Anne Fortin',orgs:'CRSL, two academic institutes, one lobbying firm',flagged:false}],
+     media_findings:[{h:'Advocacy group criticized for opaque reporting',m:'Ottawa Citizen · Jan 2024'}],
+     brief:'Active entity with no loop or zombie flags. Director cross-membership spans an academic institute and a lobbying firm. Adverse media relates to <strong>transparency concerns rather than fraud</strong>. Moderate risk. <strong>Recommend monitoring.</strong>',
+     graph_nodes:[{id:'org1',label:'Capital Region\nSocial Labs',type:'org-neutral',x:0,y:0},{id:'org2',label:'Academic\nInstitute',type:'org-neutral',x:-110,y:-60},{id:'org3',label:'Lobbying\nFirm',type:'org-warn',x:110,y:-60},{id:'dir1',label:'Dr. Anne Fortin\n(Director)',type:'director',x:0,y:-100}],
+     graph_edges:[{from:'dir1',to:'org1',type:'board',width:1.5},{from:'dir1',to:'org2',type:'board',width:1.5},{from:'dir1',to:'org3',type:'board',width:1.5}]},
+    {id:'7',name:'Horizon Youth Collective',score:52,tier:'MEDIUM',funding:'$430K',period:'2022–2023',status:'Active',
+     flags:{zombie:false,loop:false,network:true,media:false},loop_chain:[],
+     directors:[{name:'Priya Sharma',orgs:'Horizon Youth Collective, two other charities',flagged:false}],media_findings:[],
+     brief:'Small active entity. Director Priya Sharma sits on two other charities that received smaller grants totalling $180K. No adverse media and no funding anomalies detected. <strong>Low risk — routine monitoring sufficient.</strong>',
+     graph_nodes:[{id:'org1',label:'Horizon Youth\nCollective',type:'org-neutral',x:0,y:0},{id:'org2',label:'Charity B',type:'org-neutral',x:-100,y:80},{id:'org3',label:'Charity C',type:'org-neutral',x:100,y:80},{id:'dir1',label:'Priya Sharma\n(Director)',type:'director',x:0,y:-80}],
+     graph_edges:[{from:'dir1',to:'org1',type:'board',width:1},{from:'dir1',to:'org2',type:'board',width:1},{from:'dir1',to:'org3',type:'board',width:1}]},
+    {id:'8',name:'GreenPath Infrastructure Corp',score:48,tier:'MEDIUM',funding:'$780K',period:'2021–2022',status:'Active',
+     flags:{zombie:false,loop:false,network:false,media:true},loop_chain:[],directors:[],
+     media_findings:[{h:'Contractor listed in Auditor General infrastructure findings',m:'AG Report · 2023'}],
+     brief:'Sole flag is a reference in an Auditor General report related to infrastructure procurement practices. No director flags or funding loops. <strong>Adverse media is regulatory, not criminal.</strong> Low risk overall. <strong>Low risk — routine monitoring sufficient.</strong>',
+     graph_nodes:[{id:'org1',label:'GreenPath\nInfrastructure',type:'org-neutral',x:0,y:0},{id:'ag',label:'AG Report\n2023',type:'gov',x:0,y:-100}],
+     graph_edges:[{from:'ag',to:'org1',label:'referenced',type:'dashed',width:1.5}]}
+  ]
+};
+
+// ── GRAPH RENDERER (pure Canvas) ─────────────────────────────────────────
+const NODE_STYLES={
+  'org-bad':    {fill:'#3a0f0f',stroke:'#e05252',text:'#e05252'},
+  'org-warn':   {fill:'#2a1a06',stroke:'#d4931a',text:'#d4931a'},
+  'org-neutral':{fill:'#16162a',stroke:'#4a4a7a',text:'#9a9acc'},
+  'gov':        {fill:'#0a1828',stroke:'#4a9eff',text:'#4a9eff'},
+  'director':   {fill:'#1a1030',stroke:'#9a7aff',text:'#9a7aff'},
+  'director-flagged':{fill:'#2a0a20',stroke:'#ff6aaa',text:'#ff6aaa'},
+};
+const EDGE_COLORS={money:'#e05252',board:'#4a4a7a',dashed:'#d4931a'};
+
+function drawGraph(canvas,graphData){
+  const dpr=window.devicePixelRatio||1;
+  const W=canvas.offsetWidth,H=canvas.offsetHeight;
+  canvas.width=W*dpr;canvas.height=H*dpr;
+  const ctx=canvas.getContext('2d');
+  ctx.scale(dpr,dpr);
+  const nodes=graphData.graph_nodes,edges=graphData.graph_edges;
+  if(!nodes||!nodes.length)return;
+  const xs=nodes.map(n=>n.x),ys=nodes.map(n=>n.y);
+  const minX=Math.min(...xs),maxX=Math.max(...xs);
+  const minY=Math.min(...ys),maxY=Math.max(...ys);
+  const rangeX=maxX-minX||1,rangeY=maxY-minY||1;
+  const pad=64;
+  const scale=Math.min((W-pad*2)/rangeX,(H-pad*2)/rangeY,2.8);
+  const cx=W/2-(minX+maxX)/2*scale;
+  const cy=H/2-(minY+maxY)/2*scale;
+  function px(n){return cx+n.x*scale;}
+  function py(n){return cy+n.y*scale;}
+  ctx.font='bold 10px Space Mono,monospace';
+  const nodeMap={};
+  nodes.forEach(n=>{
+    const lines=n.label.split('\n');
+    const maxW=Math.max(...lines.map(l=>ctx.measureText(l).width));
+    nodeMap[n.id]={...n,cx:px(n),cy:py(n),w:Math.max(maxW+24,80),h:lines.length>1?44:30,lines};
+  });
+  edges.forEach(e=>{
+    const a=nodeMap[e.from],b=nodeMap[e.to];
+    if(!a||!b)return;
+    const color=e.type==='money'?EDGE_COLORS.money:e.type==='dashed'?EDGE_COLORS.dashed:EDGE_COLORS.board;
+    ctx.save();
+    ctx.strokeStyle=color;ctx.lineWidth=e.width||1.2;
+    ctx.globalAlpha=e.type==='board'?0.5:0.9;
+    if(e.type==='board'||e.type==='dashed'){ctx.setLineDash([4,4]);}else{ctx.setLineDash([]);}
+    const dx=b.cx-a.cx,dy=b.cy-a.cy,dist=Math.sqrt(dx*dx+dy*dy);
+    const ux=dx/dist,uy=dy/dist;
+    const sx=a.cx+ux*Math.min(a.w/2,a.h/2+4),sy=a.cy+uy*Math.min(a.w/2,a.h/2+4);
+    const ex=b.cx-ux*Math.min(b.w/2,b.h/2+4),ey=b.cy-uy*Math.min(b.w/2,b.h/2+4);
+    if(e.curve){
+      const mx=(sx+ex)/2,my=(sy+ey)/2,px2=-uy*dist*e.curve*0.4,py2=ux*dist*e.curve*0.4;
+      ctx.beginPath();ctx.moveTo(sx,sy);ctx.quadraticCurveTo(mx+px2,my+py2,ex,ey);ctx.stroke();
+      if(e.type==='money'){
+        const t=0.97,qx=(1-t)*(1-t)*sx+2*(1-t)*t*(mx+px2)+t*t*ex,qy=(1-t)*(1-t)*sy+2*(1-t)*t*(my+py2)+t*t*ey;
+        drawArrow(ctx,qx,qy,ex,ey,color);
+      }
+      if(e.label){ctx.setLineDash([]);ctx.globalAlpha=1;ctx.font='bold 9px Space Mono,monospace';ctx.fillStyle='#08080f';ctx.textAlign='center';ctx.textBaseline='middle';const lx=mx+px2*0.5,ly=my+py2*0.5-8;ctx.fillRect(lx-18,ly-7,36,14);ctx.fillStyle=color;ctx.fillText(e.label,lx,ly);}
+    }else{
+      ctx.beginPath();ctx.moveTo(sx,sy);ctx.lineTo(ex,ey);ctx.stroke();
+      if(e.type==='money')drawArrow(ctx,sx,sy,ex,ey,color);
+      if(e.label){ctx.setLineDash([]);ctx.globalAlpha=1;ctx.font='bold 9px Space Mono,monospace';ctx.fillStyle='#08080f';ctx.textAlign='center';ctx.textBaseline='middle';const lx=(sx+ex)/2,ly=(sy+ey)/2-8;ctx.fillRect(lx-18,ly-7,36,14);ctx.fillStyle=color;ctx.fillText(e.label,lx,ly);}
+    }
+    ctx.restore();
+  });
+  Object.values(nodeMap).forEach(n=>{
+    const s=NODE_STYLES[n.type]||NODE_STYLES['org-neutral'];
+    const isDir=n.type.startsWith('director');
+    ctx.save();ctx.globalAlpha=1;ctx.fillStyle=s.fill;ctx.strokeStyle=s.stroke;ctx.lineWidth=1.5;
+    if(isDir){ctx.beginPath();ctx.ellipse(n.cx,n.cy,n.w/2,n.h/2,0,0,Math.PI*2);ctx.fill();ctx.stroke();}
+    else{roundRect(ctx,n.cx-n.w/2,n.cy-n.h/2,n.w,n.h,5);ctx.fill();ctx.stroke();}
+    ctx.fillStyle=s.text;ctx.font='bold 10px Space Mono,monospace';ctx.textAlign='center';ctx.textBaseline='middle';
+    n.lines.forEach((line,i)=>{const offset=(i-(n.lines.length-1)/2)*13;ctx.fillText(line,n.cx,n.cy+offset);});
+    ctx.restore();
+  });
+}
+function drawArrow(ctx,x1,y1,x2,y2,color){
+  const angle=Math.atan2(y2-y1,x2-x1),len=9;
+  ctx.save();ctx.setLineDash([]);ctx.globalAlpha=1;ctx.fillStyle=color;ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.moveTo(x2,y2);
+  ctx.lineTo(x2-len*Math.cos(angle-0.4),y2-len*Math.sin(angle-0.4));
+  ctx.lineTo(x2-len*Math.cos(angle+0.4),y2-len*Math.sin(angle+0.4));
+  ctx.closePath();ctx.fill();ctx.restore();
+}
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.arcTo(x+w,y,x+w,y+r,r);
+  ctx.lineTo(x+w,y+h-r);ctx.arcTo(x+w,y+h,x+w-r,y+h,r);
+  ctx.lineTo(x+r,y+h);ctx.arcTo(x,y+h,x,y+h-r,r);
+  ctx.lineTo(x,y+r);ctx.arcTo(x,y,x+r,y,r);ctx.closePath();
+}
+
+// ── APP STATE ─────────────────────────────────────────────────────────────
+let ALL_ENTITIES=[];
+let activeFilter='all',minScore=0,selected=null;
+
+async function loadData(){
+  try{
+    const res=await fetch(API_URL);
+    if(res.ok){const d=await res.json();return d.entities||d;}
+  }catch(e){}
+  return SAMPLE_DATA.entities;
+}
+
+function scoreColor(s){return s>=80?'#e05252':s>=60?'#d4931a':'#3ab87a'}
+function pillClass(s){return s>=80?'rc':s>=60?'rh':'rm'}
+function scoreLabel(s){return s>=80?'CRITICAL RISK':s>=60?'HIGH RISK':'MEDIUM RISK'}
+
+function setFilter(f,btn){
+  activeFilter=f;
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderSidebar();
+}
+function applyScore(v){
+  minScore=parseInt(v);
+  document.getElementById('scoreLabel').textContent=v;
+  renderSidebar();
+}
+function getFiltered(){
+  return ALL_ENTITIES.filter(e=>{
+    if(e.score<minScore)return false;
+    if(activeFilter==='all')return true;
+    return e.flags&&e.flags[activeFilter];
+  });
+}
+function renderSidebar(){
+  const list=getFiltered();
+  document.getElementById('countBadge').textContent=list.length+' ENTIT'+(list.length===1?'Y':'IES');
+  document.getElementById('sidebar').innerHTML=list.length?list.map(e=>`
+    <div class="ecard${selected===e.id?' sel':''}" onclick="selectEntity('${e.id}')">
+      <div class="ec-row1">
+        <div class="ec-name">${e.name}</div>
+        <span class="rpill ${pillClass(e.score)}">${e.score}</span>
+      </div>
+      <div class="ec-tags">
+        <span class="etag et-gray">${e.funding}</span>
+        <span class="etag et-gray">${e.status}</span>
+        ${e.flags&&e.flags.zombie?'<span class="etag et-red">ZOMBIE</span>':''}
+        ${e.flags&&e.flags.loop?'<span class="etag et-red">LOOP</span>':''}
+        ${e.flags&&e.flags.network?'<span class="etag et-amber">NETWORK</span>':''}
+        ${e.flags&&e.flags.media?'<span class="etag et-amber">MEDIA</span>':''}
+      </div>
+    </div>`).join(''):'<div class="empty" style="height:300px"><div class="empty-icon">⚠</div><div class="empty-text">No entities match</div></div>';
+}
+function updatePills(){
+  const c=ALL_ENTITIES.filter(e=>e.score>=80).length;
+  const h=ALL_ENTITIES.filter(e=>e.score>=60&&e.score<80).length;
+  const m=ALL_ENTITIES.filter(e=>e.score<60).length;
+  document.getElementById('pill-critical').textContent=c+' CRITICAL';
+  document.getElementById('pill-high').textContent=h+' HIGH';
+  document.getElementById('pill-medium').textContent=m+' MEDIUM';
+}
+function fcard(ico,title,desc,on,cls){
+  return`<div class="fcard${on?' '+cls:''}">
+    <div class="fc-ico">${ico}</div>
+    <div class="fc-title">${title}</div>
+    <div class="fc-desc">${on?desc:'Not triggered'}</div>
+  </div>`;
+}
+function selectEntity(id){
+  selected=id;
+  renderSidebar();
+  const e=ALL_ENTITIES.find(x=>x.id===id);
+  if(!e)return;
+  const sc=scoreColor(e.score);
+  document.getElementById('detail').innerHTML=`
+    <div class="dh">
+      <div class="dh-name">${e.name}</div>
+      <div class="dh-meta">${e.funding} &nbsp;·&nbsp; ${e.period} &nbsp;·&nbsp; ${e.status}</div>
+    </div>
+    <div class="risk-box">
+      <div>
+        <div class="risk-score-num" style="color:${sc}">${e.score}</div>
+        <div class="risk-score-denom">/100</div>
+      </div>
+      <div class="risk-right">
+        <div class="risk-label-row">
+          <span class="risk-label">COMPOSITE RISK SCORE</span>
+          <span class="risk-verdict" style="color:${sc}">${scoreLabel(e.score)}</span>
+        </div>
+        <div class="risk-bar-bg"><div class="risk-bar-fill" style="width:${e.score}%;background:${sc}"></div></div>
+      </div>
+    </div>
+    <div class="flags">
+      ${fcard('💀','#1 Zombie Recipient','Dissolved within 24 months of final grant',e.flags&&e.flags.zombie,'on-red')}
+      ${fcard('🔄','#3 Funding Loop','Circular transfers detected across entities',e.flags&&e.flags.loop,'on-red')}
+      ${fcard('🕸','#6 Director Network','Shared directors across funded orgs',e.flags&&e.flags.network,'on-amber')}
+      ${fcard('📰','#10 Adverse Media','Fraud/regulatory coverage detected',e.flags&&e.flags.media,'on-amber')}
+    </div>
+    <div class="graph-sec">
+      <div class="graph-header">
+        <span class="graph-title">▸ ENTITY &amp; DIRECTOR NETWORK GRAPH</span>
+        <div class="graph-legend">
+          <span class="gl-item"><span class="gl-dot" style="background:#e05252"></span>Flagged org</span>
+          <span class="gl-item"><span class="gl-dot" style="background:#ff6aaa"></span>Flagged director</span>
+          <span class="gl-item"><span class="gl-dot" style="background:#9a7aff"></span>Director</span>
+          <span class="gl-item"><span style="color:#e05252;font-size:12px">→</span>Money flow</span>
+          <span class="gl-item"><span style="color:#4a4a7a;font-size:11px;letter-spacing:2px">- -</span>Board link</span>
+        </div>
+      </div>
+      <canvas id="graph-canvas" height="260"></canvas>
+    </div>
+    ${e.loop_chain&&e.loop_chain.length?`<div class="sec">
+      <div class="sec-title">Funding loop trace</div>
+      <div class="loop-chain">${e.loop_chain.map((n,i)=>n.startsWith('→')?`<span class="la">${n}</span>`:`<span class="ln${i===0?' origin':''}">${n}</span>`).join('')}</div>
+    </div>`:''}
+    ${e.directors&&e.directors.length?`<div class="sec">
+      <div class="sec-title">Director network</div>
+      ${e.directors.map(d=>`<div class="drow">
+        <div><div class="dr-name">${d.name}</div><div class="dr-orgs">${d.orgs}</div></div>
+        ${d.flagged?'<span class="dr-flag">⚠ MEDIA FLAG</span>':''}
+      </div>`).join('')}
+    </div>`:''}
+    ${e.media_findings&&e.media_findings.length?`<div class="sec">
+      <div class="sec-title">Adverse media signals</div>
+      ${e.media_findings.map(m=>`<div class="mitem"><div class="mi-h">${m.h}</div><div class="mi-m">${m.m}</div></div>`).join('')}
+    </div>`:''}
+    <div class="ai-brief">
+      <div class="sec-title">▸ AI RISK BRIEF</div>
+      <p>${e.brief}<span class="ai-cursor"></span></p>
+    </div>`;
+  requestAnimationFrame(()=>{
+    const canvas=document.getElementById('graph-canvas');
+    if(canvas&&e.graph_nodes)drawGraph(canvas,e);
+  });
+}
+
+// ── INIT ─────────────────────────────────────────────────────────────────
+(async()=>{
+  ALL_ENTITIES=await loadData();
+  updatePills();
+  renderSidebar();
+  if(ALL_ENTITIES.length)selectEntity(ALL_ENTITIES[0].id);
+})();
+</script>
+</body>
+</html>
