@@ -1,0 +1,1690 @@
+{
+  "entities": [
+    {
+      "id": "107951618RR0267",
+      "name": "THE GOVERNING COUNCIL OF THE SALVATION ARMY IN CANADA/CONSEIL DE DIRECTION DE L'ARM\u00c9E DU SALUT DU CANADA",
+      "score": 84,
+      "tier": "CRITICAL",
+      "funding": "$81.7M",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": true,
+        "network": true,
+        "media": true
+      },
+      "loop_chain": [
+        "THE GOVERNING COUNCIL OF THE SALVATION ARMY IN CANADA/CONSEIL DE DIRECTION DE L'ARM\u00c9E DU SALUT DU CANADA",
+        "\u2192 $7,360 \u2192",
+        "THE GOVERNING COUNCIL OF THE SALVATION ARMY IN CANADA/CONSEIL DE DIRECTION DE L'ARM\u00c9E DU SALUT DU CANADA",
+        "\u2192 $0 \u2192",
+        "THE GOVERNING COUNCIL OF THE SALVATION ARMY IN CANADA/CONSEIL DE DIRECTION DE L'ARM\u00c9E DU SALUT DU CANADA",
+        "\u2192 $0 \u2192",
+        "THE GOVERNING COUNCIL OF THE SALVATION ARMY IN CANADA/CONSEIL DE DIRECTION DE L'ARM\u00c9E DU SALUT DU CANADA",
+        "\u2192 $86,238 \u2192",
+        "THE GOVERNING COUNCIL OF THE SALVATION ARMY IN CANADA/CONSEIL DE DIRECTION DE L'ARM\u00c9E DU SALUT DU CANADA"
+      ],
+      "directors": [
+        {
+          "name": "PAUL GOODYEAR",
+          "orgs": "THE GOVERNING COUNCIL OF THE SALVATION ARMY IN CANADA/CONSEIL DE DIRECTION DE L'ARM\u00c9E DU SALUT DU CANADA, THE GOVERNING COUNCIL OF THE SALVATION ARMY IN CANADA/CONSEIL DE DIRECTION DE L'ARM\u00c9E DU SALUT DU CANADA, THE GOVERNING COUNCIL OF THE SALVATION ARMY IN CANADA/CONSEIL DE DIRECTION DE L'ARM\u00c9E DU SALUT DU CANADA",
+          "flagged": true
+        },
+        {
+          "name": "EDWARD HILL",
+          "orgs": "THE GOVERNING COUNCIL OF THE SALVATION ARMY IN CANADA/CONSEIL DE DIRECTION DE L'ARM\u00c9E DU SALUT DU CANADA, THE GOVERNING COUNCIL OF THE SALVATION ARMY IN CANADA/CONSEIL DE DIRECTION DE L'ARM\u00c9E DU SALUT DU CANADA, THE GOVERNING COUNCIL OF THE SALVATION ARMY IN CANADA/CONSEIL DE DIRECTION DE L'ARM\u00c9E DU SALUT DU CANADA",
+          "flagged": true
+        }
+      ],
+      "media_findings": [
+        {
+          "h": "Salvation Army Canada defrauded of $2.3M+ via phony-invoice scheme by former Toronto HQ accountant; Toronto Police Fraud Unit investigation launched",
+          "m": "The Globe and Mail \u00b7 2006"
+        },
+        {
+          "h": "Salvation Army Canada: Ottawa executive director fired following internal and police investigations into alleged $240,000 theft of funds",
+          "m": "CBC News / CanadianCharityLaw.ca \u00b7 2012"
+        },
+        {
+          "h": "Salvation Army Canada: Toronto employee fired for alleged theft of $2M+ in donated toys; police investigation initiated",
+          "m": "CBC News / CanadianCharityLaw.ca \u00b7 2012"
+        }
+      ],
+      "brief": "<strong>THE GOVERNING COUNCIL OF THE SALVATION ARMY IN CANADA</strong> presents a moderate-to-elevated risk profile, most notably due to its participation in a confirmed 4-node funding loop cycling <strong>$81,734,499</strong> at an anomalous efficiency rate of 1,172%, which warrants scrutiny for potential circular grant arrangements that artificially inflate reported activity. Compounding this concern, the organization has documented adverse media exposure related to an internal fraud incident in which <strong>Salvation Army Canada</strong> was defrauded of over <strong>$2.3 million</strong> through a phony-invoice scheme, indicating material weaknesses in financial controls and procurement oversight. While the 2 shared directors currently carry <strong>$0</strong> in flagged combined exposure, the convergence of funding loop anomalies and demonstrated internal control failures elevates aggregate risk.\n\nRecommend escalation for review.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "THE GOVERNING COUNCIL ",
+          "type": "org-bad",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "loop_1",
+          "label": "THE GOVERNING CO",
+          "type": "org-bad",
+          "x": 0,
+          "y": 140
+        },
+        {
+          "id": "loop_2",
+          "label": "THE GOVERNING CO",
+          "type": "org-bad",
+          "x": -140,
+          "y": 0
+        },
+        {
+          "id": "loop_3",
+          "label": "THE GOVERNING CO",
+          "type": "org-bad",
+          "x": 0,
+          "y": -140
+        },
+        {
+          "id": "dir_0",
+          "label": "PAUL GOODYEAR",
+          "type": "director-flagged",
+          "x": -170,
+          "y": -75
+        },
+        {
+          "id": "dir_1",
+          "label": "EDWARD HILL",
+          "type": "director-flagged",
+          "x": -170,
+          "y": 0
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "main",
+          "to": "loop_1",
+          "label": "$7,360",
+          "type": "money",
+          "width": 1.501472
+        },
+        {
+          "from": "loop_1",
+          "to": "loop_2",
+          "label": "",
+          "type": "money",
+          "width": 1.5
+        },
+        {
+          "from": "loop_2",
+          "to": "loop_3",
+          "label": "",
+          "type": "money",
+          "width": 1.5
+        },
+        {
+          "from": "loop_3",
+          "to": "main",
+          "label": "$86,238",
+          "type": "money",
+          "width": 1.5172476
+        },
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_1",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "106844863RR0001",
+      "name": "CANADIAN CENTRE FOR CHRISTIAN CHARITIES",
+      "score": 40,
+      "tier": "MEDIUM",
+      "funding": "$3.6M",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": true,
+        "network": false,
+        "media": false
+      },
+      "loop_chain": [
+        "CANADIAN CENTRE FOR CHRISTIAN CHARITIES",
+        "\u2192 $0 \u2192",
+        "776658015RR0001",
+        "\u2192 $0 \u2192",
+        "896568417RR0001",
+        "\u2192 $0 \u2192",
+        "832173900RR0001",
+        "\u2192 $0 \u2192",
+        "CANADIAN CENTRE FOR CHRISTIAN CHARITIES"
+      ],
+      "directors": [],
+      "media_findings": [],
+      "brief": "<strong>Canadian Centre for Christian Charities</strong> has been identified as a participant in a confirmed 4-node funding loop cycling <strong>$3,554,360</strong>, with a loop efficiency of 0%, indicating that funds are circulating without producing demonstrable charitable outputs or community benefit. While the organization's overall risk score of <strong>32/100</strong> is relatively modest, the structural nature of the funding loop raises concerns about the substantive use of charitable dollars and potential misrepresentation of program delivery. The zero-efficiency loop warrants closer examination to determine whether transactions reflect legitimate inter-organizational activity or improper fund recycling.\n\nRecommend escalation for review.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "CANADIAN CENTRE FOR CH",
+          "type": "org-bad",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "loop_1",
+          "label": "Org 1",
+          "type": "org-bad",
+          "x": 0,
+          "y": 140
+        },
+        {
+          "id": "loop_2",
+          "label": "Org 2",
+          "type": "org-bad",
+          "x": -140,
+          "y": 0
+        },
+        {
+          "id": "loop_3",
+          "label": "Org 3",
+          "type": "org-bad",
+          "x": 0,
+          "y": -140
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "main",
+          "to": "loop_1",
+          "label": "",
+          "type": "money",
+          "width": 1.5
+        },
+        {
+          "from": "loop_1",
+          "to": "loop_2",
+          "label": "",
+          "type": "money",
+          "width": 1.5
+        },
+        {
+          "from": "loop_2",
+          "to": "loop_3",
+          "label": "",
+          "type": "money",
+          "width": 1.5
+        },
+        {
+          "from": "loop_3",
+          "to": "main",
+          "label": "",
+          "type": "money",
+          "width": 1.5
+        }
+      ]
+    },
+    {
+      "id": "107491052RR0001",
+      "name": "L'H\u00f4pital G\u00e9n\u00e9ral Juif Sir Mortimer B. Davis",
+      "score": 32,
+      "tier": "MEDIUM",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": true
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "JULIE ROY",
+          "orgs": "119044865RR0001, CENTRE MIRIAM / MIRIAM HOME AND SERVICES, 140708876RR0001",
+          "flagged": true
+        }
+      ],
+      "media_findings": [
+        {
+          "h": "UPAC charges Jewish General Hospital contractor with 65 counts of fiscal tax fraud for overbilling on construction work",
+          "m": "CBC News \u00b7 2015"
+        },
+        {
+          "h": "Former construction contractors face 78 tax-fraud charges for work on Jewish General Hospital in false-billing scheme",
+          "m": "CBC News \u00b7 2016"
+        },
+        {
+          "h": "Jewish General Hospital sues former contractors for alleged $4.22M overbilling, accusing them of colluding with three former hospital employees over nearly a decade (2004\u20132013)",
+          "m": "CBC News \u00b7 2016"
+        }
+      ],
+      "brief": "<strong>L'H\u00f4pital G\u00e9n\u00e9ral Juif Sir Mortimer B. Davis</strong> presents a low overall risk profile with a score of 12/100, reflecting minimal network exposure through 1 shared director across funded organizations and <strong>$0</strong> in combined financial exposure. However, adverse media signals warrant attention, specifically UPAC charges against a hospital contractor involving <strong>65 counts</strong> of fiscal irregularities, which, while not directly implicating the institution, indicate procurement environment vulnerabilities. Low risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "L'H\u00f4pital G\u00e9n\u00e9ral Juif",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "JULIE ROY",
+          "type": "director-flagged",
+          "x": -170,
+          "y": -75
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "106771686RR0001",
+      "name": "THE BAPTIST HOUSING MINISTRIES SOCIETY",
+      "score": 22,
+      "tier": "LOW",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "Larry Gustafson",
+          "orgs": "119214997RR0001",
+          "flagged": false
+        },
+        {
+          "name": "Ana Mak",
+          "orgs": "119215010RR0001, 877943704RR0001, 827204314RR0001",
+          "flagged": true
+        },
+        {
+          "name": "Allan Elander",
+          "orgs": "",
+          "flagged": false
+        }
+      ],
+      "media_findings": [],
+      "brief": "<strong>THE BAPTIST HOUSING MINISTRIES SOCIETY</strong> presents a minimal conflict-of-interest profile, with only 2 directors identified as shared with other funded organizations and a combined cross-entity funding exposure of <strong>$0</strong>. The risk score of <strong>14/100</strong> reflects no material financial overlap or structural vulnerabilities warranting elevated scrutiny at this time.\n\nLow risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "THE BAPTIST HOUSING MI",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "Larry Gustafson",
+          "type": "director",
+          "x": -170,
+          "y": -75
+        },
+        {
+          "id": "dir_1",
+          "label": "Ana Mak",
+          "type": "director-flagged",
+          "x": -170,
+          "y": 0
+        },
+        {
+          "id": "dir_2",
+          "label": "Allan Elander",
+          "type": "director",
+          "x": -170,
+          "y": 75
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_1",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_2",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "103019360RR0001",
+      "name": "CENTRE MIRIAM / MIRIAM HOME AND SERVICES",
+      "score": 22,
+      "tier": "LOW",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "RICHARD BOND",
+          "orgs": "La Corporation du Centre Hospitalier G\u00e9riatrique Maimonides/Maimonides Hospital Geriatric Center, 118842517RR0001",
+          "flagged": true
+        },
+        {
+          "name": "LUCIO D'INTINO",
+          "orgs": "",
+          "flagged": false
+        },
+        {
+          "name": "JULIE ROY",
+          "orgs": "119044865RR0001, L'H\u00f4pital G\u00e9n\u00e9ral Juif Sir Mortimer B. Davis, 140708876RR0001",
+          "flagged": true
+        }
+      ],
+      "media_findings": [],
+      "brief": "<strong>CENTRE MIRIAM / MIRIAM HOME AND SERVICES</strong> presents a minimal governance risk profile, with 2 directors shared across other funded organizations; however, the associated combined financial exposure stands at <strong>$0</strong>, indicating no material conflict-of-interest risk from cross-directorship arrangements at this time. The entity's overall risk score of <strong>14/100</strong> reflects a low-risk standing with no significant signals warranting elevated scrutiny.\n\nLow risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "CENTRE MIRIAM / MIRIAM",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "RICHARD BOND",
+          "type": "director-flagged",
+          "x": -170,
+          "y": -75
+        },
+        {
+          "id": "dir_1",
+          "label": "LUCIO D'INTINO",
+          "type": "director",
+          "x": -170,
+          "y": 0
+        },
+        {
+          "id": "dir_2",
+          "label": "JULIE ROY",
+          "type": "director-flagged",
+          "x": -170,
+          "y": 75
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_1",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_2",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "108145632RR0001",
+      "name": "INTER-MOUNTAIN WATERSHED DISTRICT",
+      "score": 20,
+      "tier": "LOW",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "MAURICE THEORET",
+          "orgs": "",
+          "flagged": false
+        },
+        {
+          "name": "DAVID SMITH",
+          "orgs": "135249803RR0001, 816799134RR0001",
+          "flagged": true
+        }
+      ],
+      "media_findings": [],
+      "brief": "<strong>INTER-MOUNTAIN WATERSHED DISTRICT</strong> presents a minimal governance concern, with only 1 director shared across other funded organizations and a combined financial exposure of <strong>$0</strong>, indicating no material cross-organizational risk at this time. The entity's risk score of <strong>12/100</strong> reflects a low-risk profile with no significant signals warranting heightened scrutiny. Low risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "INTER-MOUNTAIN WATERSH",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "MAURICE THEORET",
+          "type": "director",
+          "x": -170,
+          "y": -75
+        },
+        {
+          "id": "dir_1",
+          "label": "DAVID SMITH",
+          "type": "director-flagged",
+          "x": -170,
+          "y": 0
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_1",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "107654782RR0001",
+      "name": "La Corporation du Centre Hospitalier G\u00e9riatrique Maimonides/Maimonides Hospital Geriatric Center",
+      "score": 20,
+      "tier": "LOW",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "RICHARD BOND",
+          "orgs": "CENTRE MIRIAM / MIRIAM HOME AND SERVICES, 118842517RR0001",
+          "flagged": true
+        },
+        {
+          "name": "MORDECAI YALOVSKY",
+          "orgs": "",
+          "flagged": false
+        }
+      ],
+      "media_findings": [],
+      "brief": "<strong>La Corporation du Centre Hospitalier G\u00e9riatrique Maimonides/Maimonides Hospital Geriatric Center</strong> presents a minimal governance risk profile, with only <strong>1 shared director</strong> identified across funded organizations and a combined financial exposure of <strong>$0</strong>, indicating negligible conflict-of-interest or concentration concerns at this time. The risk score of <strong>12/100</strong> reflects a well-bounded organizational footprint with no material cross-entity financial entanglements warranting elevated scrutiny.\n\nLow risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "La Corporation du Cent",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "RICHARD BOND",
+          "type": "director-flagged",
+          "x": -170,
+          "y": -75
+        },
+        {
+          "id": "dir_1",
+          "label": "MORDECAI YALOVSK",
+          "type": "director",
+          "x": -170,
+          "y": 0
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_1",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "107397317RR0001",
+      "name": "LA SOCIETE D'HABITATION DE ROGERSVILLE INC.",
+      "score": 20,
+      "tier": "LOW",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "LILIANNE GALLANT",
+          "orgs": "",
+          "flagged": false
+        },
+        {
+          "name": "DENISE ARSENAULT",
+          "orgs": "",
+          "flagged": false
+        },
+        {
+          "name": "DONALD LEBLANC",
+          "orgs": "887873065RR0001, 765012513RR0001",
+          "flagged": true
+        },
+        {
+          "name": "MAXIME CAISSIE",
+          "orgs": "",
+          "flagged": false
+        }
+      ],
+      "media_findings": [],
+      "brief": "<strong>LA SOCIETE D'HABITATION DE ROGERSVILLE INC.</strong> presents a minimal risk profile, scoring <strong>12/100</strong> with only one director overlap identified across other funded organizations and a combined shared-director funding exposure of <strong>$0</strong>. The absence of any measurable financial exposure through shared directorship relationships indicates no immediate governance or conflict-of-interest concerns warranting elevated scrutiny at this time.\n\nLow risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "LA SOCIETE D'HABITATIO",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "LILIANNE GALLANT",
+          "type": "director",
+          "x": -170,
+          "y": -75
+        },
+        {
+          "id": "dir_1",
+          "label": "DENISE ARSENAULT",
+          "type": "director",
+          "x": -170,
+          "y": 0
+        },
+        {
+          "id": "dir_2",
+          "label": "DONALD LEBLANC",
+          "type": "director-flagged",
+          "x": -170,
+          "y": 75
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_1",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_2",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "106969462RR0001",
+      "name": "ACTION PATRIMOINE (ARCHITECTURE ET PAYSAGES DU QU\u00c9BEC)",
+      "score": 20,
+      "tier": "LOW",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "ANDR\u00c9 MICHEL",
+          "orgs": "",
+          "flagged": false
+        },
+        {
+          "name": "ANDR\u00c9ANNE JALBERT-LARAM\u00c9E",
+          "orgs": "",
+          "flagged": false
+        },
+        {
+          "name": "GUY DROUIN",
+          "orgs": "892816208RR0001, \u00c9ditions continuit\u00e9 inc.",
+          "flagged": true
+        }
+      ],
+      "media_findings": [],
+      "brief": "<strong>ACTION PATRIMOINE (ARCHITECTURE ET PAYSAGES DU QU\u00c9BEC)</strong> presents a minimal governance risk profile, scoring <strong>12/100</strong> based on available signals. The organization shows only <strong>1 shared director</strong> with other funded entities, with a combined cross-organizational funding exposure of <strong>$0</strong>, indicating negligible conflict-of-interest or concentration risk at this time. No material indicators of financial irregularity or structural vulnerability have been identified.\n\nLow risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "ACTION PATRIMOINE (ARC",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "ANDR\u00c9 MICHEL",
+          "type": "director",
+          "x": -170,
+          "y": -75
+        },
+        {
+          "id": "dir_1",
+          "label": "ANDR\u00c9ANNE JALBER",
+          "type": "director",
+          "x": -170,
+          "y": 0
+        },
+        {
+          "id": "dir_2",
+          "label": "GUY DROUIN",
+          "type": "director-flagged",
+          "x": -170,
+          "y": 75
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_1",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_2",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "102940400RR0001",
+      "name": "LA JONCTION POUR ELLE INC.",
+      "score": 20,
+      "tier": "LOW",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "GUYLAINE PELLETIER",
+          "orgs": "",
+          "flagged": false
+        },
+        {
+          "name": "CAROLINE TREMBLAY",
+          "orgs": "855879664RR0001, 890709629RR0001",
+          "flagged": true
+        }
+      ],
+      "media_findings": [],
+      "brief": "<strong>La Jonction Pour Elle Inc.</strong> presents a minimal network risk profile, with only <strong>1 director</strong> shared across other funded organizations and a combined overlapping funding exposure of <strong>$0</strong>. The entity's risk score of <strong>12/100</strong> reflects no material governance concentration or financial entanglement warranting elevated scrutiny at this time.\n\nLow risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "LA JONCTION POUR ELLE ",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "GUYLAINE PELLETI",
+          "type": "director",
+          "x": -170,
+          "y": -75
+        },
+        {
+          "id": "dir_1",
+          "label": "CAROLINE TREMBLA",
+          "type": "director-flagged",
+          "x": -170,
+          "y": 0
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_1",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "101574093RR0001",
+      "name": "\u00c9ditions continuit\u00e9 inc.",
+      "score": 12,
+      "tier": "LOW",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "GUY DROUIN",
+          "orgs": "892816208RR0001, ACTION PATRIMOINE (ARCHITECTURE ET PAYSAGES DU QU\u00c9BEC)",
+          "flagged": true
+        }
+      ],
+      "media_findings": [],
+      "brief": "<strong>\u00c9ditions continuit\u00e9 inc.</strong> presents a minimal governance risk profile, scoring <strong>12/100</strong> on the risk index. The organization shares 1 director with other funded entities, though the combined financial exposure across those relationships stands at <strong>$0</strong>, indicating no material conflict-of-interest or concentration risk at this time.\n\nLow risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "\u00c9ditions continuit\u00e9 in",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "GUY DROUIN",
+          "type": "director-flagged",
+          "x": -170,
+          "y": -75
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "546314",
+      "name": "EDMONTON NORTHLANDS",
+      "score": 10,
+      "tier": "LOW",
+      "funding": "$47.4M",
+      "period": "2019\u20132024",
+      "status": "Dissolved",
+      "flags": {
+        "zombie": true,
+        "loop": false,
+        "network": false,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [],
+      "media_findings": [],
+      "brief": "<strong>Edmonton Northlands</strong> received <strong>$47,393,344</strong> in public funding before being dissolved, raising significant concerns about whether those funds were expended appropriately and in accordance with grant conditions prior to wind-up. The dissolution of the entity eliminates the usual accountability mechanisms \u2014 such as ongoing reporting obligations and organizational continuity \u2014 that would ordinarily safeguard public funds of this magnitude. The combination of a large public investment and subsequent dissolution warrants scrutiny of final financial statements, asset disposition, and any residual liabilities assumed by successor organizations.\n\nRecommend escalation for review.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "EDMONTON NORTHLANDS",
+          "type": "org-bad",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "gov",
+          "label": "Gov Funder",
+          "type": "gov",
+          "x": -130,
+          "y": 0
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "gov",
+          "to": "main",
+          "label": "",
+          "type": "money",
+          "width": 1.5
+        }
+      ]
+    },
+    {
+      "id": "501264",
+      "name": "CAUSE AND EFFECT FOUNDATION",
+      "score": 10,
+      "tier": "LOW",
+      "funding": "$38.1M",
+      "period": "2019\u20132024",
+      "status": "Dissolved",
+      "flags": {
+        "zombie": true,
+        "loop": false,
+        "network": false,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [],
+      "media_findings": [],
+      "brief": "<strong>CAUSE AND EFFECT FOUNDATION</strong> received <strong>$38,053,407</strong> in public funding before dissolving, raising serious concerns about the stewardship and final disposition of these public resources. The dissolution timeline relative to funding receipt suggests a potentially significant accountability gap, as no post-dissolution acquittal or asset recovery process has been evidenced. The scale of public funds involved warrants immediate scrutiny to determine whether monies were expended in accordance with grant conditions and whether recovery action is viable.\n\nRecommend immediate audit referral.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "CAUSE AND EFFECT FOUND",
+          "type": "org-bad",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "gov",
+          "label": "Gov Funder",
+          "type": "gov",
+          "x": -130,
+          "y": 0
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "gov",
+          "to": "main",
+          "label": "",
+          "type": "money",
+          "width": 1.5
+        }
+      ]
+    },
+    {
+      "id": "443461",
+      "name": "ALBERTA DENTAL SERVICE CORPORATION",
+      "score": 10,
+      "tier": "LOW",
+      "funding": "$1331.4M",
+      "period": "2019\u20132024",
+      "status": "Dissolved",
+      "flags": {
+        "zombie": true,
+        "loop": false,
+        "network": false,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [],
+      "media_findings": [],
+      "brief": "<strong>Alberta Dental Service Corporation</strong> received <strong>$1,331,426,306</strong> in public funding before being dissolved, raising questions about the disposition of those funds and whether all contractual and program delivery obligations were met prior to wind-down. The dissolution timeline relative to the funding intake requires verification to confirm that no residual liabilities, unspent allocations, or accountability gaps remain outstanding. Given the exceptionally large funding quantum involved, this warrants closer examination despite the low composite risk score.\n\nRecommend escalation for review.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "ALBERTA DENTAL SERVICE",
+          "type": "org-bad",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "gov",
+          "label": "Gov Funder",
+          "type": "gov",
+          "x": -130,
+          "y": 0
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "gov",
+          "to": "main",
+          "label": "",
+          "type": "money",
+          "width": 1.5
+        }
+      ]
+    },
+    {
+      "id": "106681471RR0001",
+      "name": "ACADEMY OF CANADIAN CINEMA AND TELEVISION ACADEMIE CANADIENNE DU CINEMA ET DE LA TELEVISION",
+      "score": 6,
+      "tier": "LOW",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "MARTIN KATZ",
+          "orgs": "823034145RR0001",
+          "flagged": false
+        },
+        {
+          "name": "ANNE FITZGERALD",
+          "orgs": "",
+          "flagged": false
+        },
+        {
+          "name": "JOHN YOUNG",
+          "orgs": "886392794RR0001",
+          "flagged": false
+        },
+        {
+          "name": "PAUL BRONFMAN",
+          "orgs": "CANADIAN FILM CENTRE",
+          "flagged": false
+        }
+      ],
+      "media_findings": [],
+      "brief": "<strong>ACADEMY OF CANADIAN CINEMA AND TELEVISION / ACAD\u00c9MIE CANADIENNE DU CIN\u00c9MA ET DE LA T\u00c9L\u00c9VISION</strong> presents a low-risk profile with a risk score of <strong>6/100</strong>, reflecting minimal governance concerns. While 3 directors are shared with other funded organizations, the combined financial exposure stands at <strong>$0</strong>, indicating no material conflict-of-interest risk related to fund flows. No significant anomalies or compounding risk signals were identified in the available data.\n\nLow risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "ACADEMY OF CANADIAN CI",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "MARTIN KATZ",
+          "type": "director",
+          "x": -170,
+          "y": -75
+        },
+        {
+          "id": "dir_1",
+          "label": "ANNE FITZGERALD",
+          "type": "director",
+          "x": -170,
+          "y": 0
+        },
+        {
+          "id": "dir_2",
+          "label": "JOHN YOUNG",
+          "type": "director",
+          "x": -170,
+          "y": 75
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_1",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_2",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "108079856RR0001",
+      "name": "THE KENSINGTON HEALTH CENTRE",
+      "score": 4,
+      "tier": "LOW",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "JANET DOWNING",
+          "orgs": "",
+          "flagged": false
+        },
+        {
+          "name": "JEANNINE GIRARD-PEARLMAN",
+          "orgs": "119253573RR0001",
+          "flagged": false
+        },
+        {
+          "name": "JOHN CAPE",
+          "orgs": "",
+          "flagged": false
+        },
+        {
+          "name": "TRUDY FAHIE",
+          "orgs": "825912215RR0001",
+          "flagged": false
+        }
+      ],
+      "media_findings": [],
+      "brief": "<strong>The Kensington Health Centre</strong> presents minimal governance risk, scoring <strong>4 out of 100</strong> on the risk index. While 2 directors are shared with other funded organisations, the combined financial exposure across those relationships is <strong>$0</strong>, indicating no material conflict-of-interest or resource-diversion concern at this time. No adverse signals warrant elevated scrutiny under current assessment criteria.\n\nLow risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "THE KENSINGTON HEALTH ",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "JANET DOWNING",
+          "type": "director",
+          "x": -170,
+          "y": -75
+        },
+        {
+          "id": "dir_1",
+          "label": "JEANNINE GIRARD-",
+          "type": "director",
+          "x": -170,
+          "y": 0
+        },
+        {
+          "id": "dir_2",
+          "label": "JOHN CAPE",
+          "type": "director",
+          "x": -170,
+          "y": 75
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_1",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_2",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "108021544RR0001",
+      "name": "THE BLOOM GROUP COMMUNITY SERVICES SOCIETY",
+      "score": 4,
+      "tier": "LOW",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "JOHN BENNETT",
+          "orgs": "",
+          "flagged": false
+        },
+        {
+          "name": "FRANCO FERRARI",
+          "orgs": "781185723RR0001",
+          "flagged": false
+        },
+        {
+          "name": "DEBRA FINLAY",
+          "orgs": "781185723RR0001",
+          "flagged": false
+        },
+        {
+          "name": "CHANG-SENG LEE",
+          "orgs": "",
+          "flagged": false
+        }
+      ],
+      "media_findings": [],
+      "brief": "<strong>The Bloom Group Community Services Society</strong> presents minimal governance conflict risk, with 2 directors shared across other funded organizations but <strong>$0 combined financial exposure</strong> identified through signal analysis. The entity's risk score of <strong>4/100</strong> reflects no material indicators of misuse, overlap liability, or structural concern warranting elevated scrutiny at this time.\n\nLow risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "THE BLOOM GROUP COMMUN",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "JOHN BENNETT",
+          "type": "director",
+          "x": -170,
+          "y": -75
+        },
+        {
+          "id": "dir_1",
+          "label": "FRANCO FERRARI",
+          "type": "director",
+          "x": -170,
+          "y": 0
+        },
+        {
+          "id": "dir_2",
+          "label": "DEBRA FINLAY",
+          "type": "director",
+          "x": -170,
+          "y": 75
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_1",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_2",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "107820474RR0001",
+      "name": "ABLELIVING SERVICES INC.",
+      "score": 4,
+      "tier": "LOW",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "DON ROSS",
+          "orgs": "",
+          "flagged": false
+        },
+        {
+          "name": "SUSAN RIVERS",
+          "orgs": "CAPABILITY SUPPORT SERVICES INC.",
+          "flagged": false
+        },
+        {
+          "name": "BRENDA VRKLJAN",
+          "orgs": "833233430RR0001",
+          "flagged": false
+        },
+        {
+          "name": "ELIZABETH MANGANELLI-STAITE",
+          "orgs": "",
+          "flagged": false
+        }
+      ],
+      "media_findings": [],
+      "brief": "<strong>ABLELIVING SERVICES INC.</strong> presents a minimal governance risk profile, scoring <strong>4 out of 100</strong> on the departmental risk assessment framework. While 2 directors are shared with other funded organizations, the combined financial exposure across those relationships is <strong>$0</strong>, indicating no material conflict-of-interest or fund-flow risk at this time. No further signals of concern have been identified.\n\nLow risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "ABLELIVING SERVICES IN",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "DON ROSS",
+          "type": "director",
+          "x": -170,
+          "y": -75
+        },
+        {
+          "id": "dir_1",
+          "label": "SUSAN RIVERS",
+          "type": "director",
+          "x": -170,
+          "y": 0
+        },
+        {
+          "id": "dir_2",
+          "label": "BRENDA VRKLJAN",
+          "type": "director",
+          "x": -170,
+          "y": 75
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_1",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_2",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "107613812RR0001",
+      "name": "LE PROGRAMME DE PORTAGE RELATIF A LA DEPENDANCE DE LA DROGUE",
+      "score": 4,
+      "tier": "LOW",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "MICHAEL DI GRAPPA",
+          "orgs": "",
+          "flagged": false
+        },
+        {
+          "name": "NANCY CLEMAN",
+          "orgs": "129151379RR0001",
+          "flagged": false
+        },
+        {
+          "name": "PETER HOWLETT",
+          "orgs": "129151379RR0001",
+          "flagged": false
+        }
+      ],
+      "media_findings": [],
+      "brief": "<strong>LE PROGRAMME DE PORTAGE RELATIF A LA DEPENDANCE DE LA DROGUE</strong> presents a minimal governance risk profile, scoring <strong>4/100</strong> on the departmental risk index. While 2 directors are shared with other funded organizations, the combined financial exposure across those overlapping entities stands at <strong>$0</strong>, indicating no material conflict-of-interest or co-funding concentration concerns at this time. No adverse signals were detected that would warrant elevated scrutiny.\n\nLow risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "LE PROGRAMME DE PORTAG",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "MICHAEL DI GRAPP",
+          "type": "director",
+          "x": -170,
+          "y": -75
+        },
+        {
+          "id": "dir_1",
+          "label": "NANCY CLEMAN",
+          "type": "director",
+          "x": -170,
+          "y": 0
+        },
+        {
+          "id": "dir_2",
+          "label": "PETER HOWLETT",
+          "type": "director",
+          "x": -170,
+          "y": 75
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_1",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_2",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "107508160RR0001",
+      "name": "L'Institut de Recherche du Centre Universitaire de Sant\u00e9 McGill The Research Institute of the McGill University Health Centre",
+      "score": 4,
+      "tier": "LOW",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "PIERRE LORTIE",
+          "orgs": "Institut du cancer de montr\u00e9al / Montr\u00e9al Cancer Institute",
+          "flagged": false
+        },
+        {
+          "name": "PETER KRUYT",
+          "orgs": "Centre universitaire de sant\u00e9 McGill / McGill University Health Centre",
+          "flagged": false
+        }
+      ],
+      "media_findings": [],
+      "brief": "<strong>L'Institut de Recherche du Centre Universitaire de Sant\u00e9 McGill (The Research Institute of the McGill University Health Centre)</strong> presents a minimal governance risk profile, achieving a risk score of <strong>4/100</strong>. While <strong>2 directors</strong> are shared with other funded organizations, the combined financial exposure across those relationships stands at <strong>$0</strong>, indicating no material conflict-of-interest or fund-flow concerns at this time.\n\nLow risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "L'Institut de Recherch",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "PIERRE LORTIE",
+          "type": "director",
+          "x": -170,
+          "y": -75
+        },
+        {
+          "id": "dir_1",
+          "label": "PETER KRUYT",
+          "type": "director",
+          "x": -170,
+          "y": 0
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_1",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "107294498RR0001",
+      "name": "ELIZABETH FRY (UNISON) SOCIETY OF CB",
+      "score": 4,
+      "tier": "LOW",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "MICHELLE SMITH",
+          "orgs": "118850080RR0001",
+          "flagged": false
+        },
+        {
+          "name": "JILLIAN BARRINGTON",
+          "orgs": "The Canadian Association of Elizabeth Fry Societies / l'Association canadienne des Soci\u00e9t\u00e9s Elizabeth Fry",
+          "flagged": false
+        }
+      ],
+      "media_findings": [],
+      "brief": "Risk score <strong>4/100</strong>. This entity 2 shared directors detected. Low risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "ELIZABETH FRY (UNISON)",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "MICHELLE SMITH",
+          "type": "director",
+          "x": -170,
+          "y": -75
+        },
+        {
+          "id": "dir_1",
+          "label": "JILLIAN BARRINGT",
+          "type": "director",
+          "x": -170,
+          "y": 0
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_1",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    },
+    {
+      "id": "100302702RR0001",
+      "name": "Moelle \u00e9pini\u00e8re et motricit\u00e9 Qu\u00e9bec",
+      "score": 4,
+      "tier": "LOW",
+      "funding": "$0",
+      "period": "2019\u20132024",
+      "status": "Active",
+      "flags": {
+        "zombie": false,
+        "loop": false,
+        "network": true,
+        "media": false
+      },
+      "loop_chain": [],
+      "directors": [
+        {
+          "name": "MICHEL THEMENS",
+          "orgs": "886676592RR0001",
+          "flagged": false
+        },
+        {
+          "name": "J\u00c9R\u00d4ME ST- GELAIS",
+          "orgs": "",
+          "flagged": false
+        },
+        {
+          "name": "GUYLAINE BEAULAC",
+          "orgs": "886676592RR0001",
+          "flagged": false
+        }
+      ],
+      "media_findings": [],
+      "brief": "Risk score <strong>4/100</strong>. This entity 2 shared directors detected. Low risk \u2014 routine monitoring sufficient.",
+      "graph_nodes": [
+        {
+          "id": "main",
+          "label": "Moelle \u00e9pini\u00e8re et mot",
+          "type": "org-warn",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": "dir_0",
+          "label": "MICHEL THEMENS",
+          "type": "director",
+          "x": -170,
+          "y": -75
+        },
+        {
+          "id": "dir_1",
+          "label": "J\u00c9R\u00d4ME ST- GELAI",
+          "type": "director",
+          "x": -170,
+          "y": 0
+        },
+        {
+          "id": "dir_2",
+          "label": "GUYLAINE BEAULAC",
+          "type": "director",
+          "x": -170,
+          "y": 75
+        }
+      ],
+      "graph_edges": [
+        {
+          "from": "dir_0",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_1",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        },
+        {
+          "from": "dir_2",
+          "to": "main",
+          "type": "board",
+          "width": 1.2
+        }
+      ]
+    }
+  ],
+  "generated_at": "2026-04-29T13:30:09.674827",
+  "total_count": 22,
+  "critical_count": 1,
+  "high_count": 0,
+  "medium_count": 2
+}
